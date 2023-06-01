@@ -1,11 +1,5 @@
-from flask import Flask, session, redirect, render_template, request, jsonify
-from os.path import join, dirname
-from dotenv import load_dotenv
+from flask import Flask, session, redirect, render_template, request
 from pymirrativ import Mirrativ
-from pprint import pprint
-
-dotenv_path = join(dirname(__file__), '.env')
-load_dotenv(dotenv_path)
 
 app = Flask(__name__)
 app.secret_key = "mirrativ"
@@ -22,7 +16,6 @@ def index():
         client.login(session["token"])
         lives = []
         for live in client.get_lives_of_following().list:
-            # for live in client.get_lives_of_recommended().list:
             if live.type in ["live_small", "live_large"]:
                 live = getattr(live, live.type)
                 lives.append({
