@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mirrativ++</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="/static/js/jquery-3.6.1.js"></script>
+    <script src="/static/js/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+    <button id="logout">Logout</button>
+    <h1><a class="top" href="{{ url_for('index') }}">Mirrativ++</a></h1>
+    <p class="home_desc">Click on [ LIVE ] to open the custom live viewer! Clicking on a live title will lead you to a normal live url.</p>
+
+    {% for live in data %}
+    <div class="home_container">
+        {% if live.is_live %}
+        <a class="home_live" href="{{ url_for('live', live_id=live.live_id) }}" style="display:block;margin-bottom: 10px">[ LIVE ]</a>
+        {% endif %}
+        {% if live.is_viewable %}
+        <p class="home_title"><a href="{{ live.url }}">{{ live.title }} <span class="home_title_id">({{ live.live_id }})</span></a></p>
+        {% else %}
+        <p class="home_title">{{ live.title }} <span class="home_title_id">({{ live.live_id }})</span></p>
+        {% endif %}
+        <p class="home_user" >by {{ live.user.name }} ({{ live.user.id }})</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

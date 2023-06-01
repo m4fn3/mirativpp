@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mirrativ++</title>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <script src="/static/js/jquery-3.6.1.js"></script>
+    <script src="/static/js/script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+    <button id="logout">Logout</button>
+    <h1><a class="top" href="{{ url_for('index') }}">Mirrativ++</a></h1>
+    <p class="live_title">{{ data.title }} by {{ data.owner.name }}</p>
+    <video class="live_video" width="200" height="200" controls>
+        <source src="{{ data.streaming_url_hls }}" type="application/x-mpegURL">
+    </video>
+    <div class="live_comment">
+        <div>
+            <button id="join">Join</button>
+        </div>
+        <div>
+            <input type="text" id="comment"/>
+            <button id="send">Send</button>
+        </div>
+    </div>
+<script>
+    const live_id = "{{ data.live_id }}"
+</script>
+</body>
+</html>

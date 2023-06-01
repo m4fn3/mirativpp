@@ -1,0 +1,88 @@
+.top {
+    text-decoration: none;
+    color: aquamarine;
+    margin: 0 0 0 20px;
+    font-family: cursive;
+}
+
+body {
+    background-color: #191919;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: aquamarine;
+}
+
+button {
+    color: black;
+}
+
+
+.login_desc {
+    margin: 10px 20px;
+}
+.login_button {
+    margin: 10px 20px;
+}
+
+.home_desc {
+    font-size: 15px;
+    margin: 10px 20px 20px 20px;
+}
+
+.home_container {
+    border: 1px solid aquamarine;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 10px 10px;
+}
+
+.home_title {
+    margin: 10px 0 5px 10px;
+}
+
+.home_title_id {
+    font-size: 10px;
+}
+
+.home_user {
+    margin: 0 0 10px 30px;
+    font-size: 12px;
+}
+
+.home_live {
+    margin: 10px 0 5px 10px;
+    font-weight: bold;
+}
+
+#token {
+    width: 200px;
+}
+
+#logout {
+    float: right;
+    margin: 20px 20px 0 0;
+}
+
+.live_title {
+    margin: 10px 20px;
+}
+
+.live_video {
+    margin: 0 0 0 30px;
+    display: block;
+}
+
+.live_comment {
+    margin: 20px 30px;
+}
+
+.live_comment input {
+    width: 200px;
+}
+
+.live_comment div {
+    margin: 10px 0;
+}
