@@ -8,11 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
-    <button id="logout">Logout</button>
+    <div class="home_me">
+        <button id="logout">Logout</button>
+        <p>{{ user.name }}({{ user.id }})[{{ user.grade }}]</p>
+    </div>
     <h1><a class="top" href="{{ url_for('index') }}">Mirrativ++</a></h1>
-    <p class="live_title">{{ data.title }} by {{ data.owner.name }}</p>
+    <p class="live_title">{{ live.title }} by {{ live.owner.name }}</p>
     <video class="live_video" width="200" height="200" controls>
-        <source src="{{ data.streaming_url_hls }}" type="application/x-mpegURL">
+        <source src="{{ live.streaming_url_hls }}" type="application/x-mpegURL">
     </video>
     <div class="live_comment">
         <div>
@@ -24,7 +27,7 @@
         </div>
     </div>
 <script>
-    const live_id = "{{ data.live_id }}"
+    const live_id = "{{ live.live_id }}"
 </script>
 </body>
 </html>

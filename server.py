@@ -14,6 +14,12 @@ def index():
     else:
         client = Mirrativ()
         client.login(session["token"])
+        me = client.me()
+        user = {
+            "name": me.name,
+            "id": me.user_id,
+            "grade": me.grade_id
+        }
         lives = []
         for live in client.get_lives_of_following().list:
             if live.type in ["live_small", "live_large"]:
@@ -29,7 +35,7 @@ def index():
                         "id": live.owner.user_id
                     },
                 })
-        return render_template('home.html', data=lives)
+        return render_template('home.html', lives=lives, user=user)
 
 
 @app.route("/logout")
@@ -47,8 +53,14 @@ def live():
     live_id = request.args.get("live_id")
     client = Mirrativ()
     client.login(session["token"])
+    me = client.me()
+    user = {
+        "name": me.name,
+        "id": me.user_id,
+        "grade": me.grade_id
+    }
     live = client.get_live(live_id)
-    return render_template("live.html", data=live)
+    return render_template("live.html", live=live, user=user)
 
 
 @app.route("/comment")
@@ -77,4 +89,4 @@ def join():
 
 # --------------------------------------------------------------------------
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=1111)
+    app.run(host='0.0.0.0', port=1111, debug=True)
